@@ -1,4 +1,4 @@
-## `translit` [![GoDoc](https://godoc.org/pkg.re/essentialkaos/translit.v1?status.svg)](https://godoc.org/pkg.re/essentialkaos/translit.v1) [![Go Report Card](https://goreportcard.com/badge/github.com/essentialkaos/translit)](https://goreportcard.com/report/github.com/essentialkaos/translit) [![codebeat badge](https://codebeat.co/badges/15851ebb-6715-44b9-be66-0d13dee8b1ee)](https://codebeat.co/projects/github-com-essentialkaos-translit-master) [![Coverage Status](https://coveralls.io/repos/github/essentialkaos/translit/badge.svg)](https://coveralls.io/github/essentialkaos/translit) [![License](https://gh.kaos.io/ekol.svg)](https://essentialkaos.com/ekol)
+## `translit` [![GoDoc](https://godoc.org/pkg.re/essentialkaos/translit.v2?status.svg)](https://godoc.org/pkg.re/essentialkaos/translit.v2) [![Go Report Card](https://goreportcard.com/badge/github.com/essentialkaos/translit)](https://goreportcard.com/report/github.com/essentialkaos/translit) [![codebeat badge](https://codebeat.co/badges/15851ebb-6715-44b9-be66-0d13dee8b1ee)](https://codebeat.co/projects/github-com-essentialkaos-translit-master) [![Coverage Status](https://coveralls.io/repos/github/essentialkaos/translit/badge.svg)](https://coveralls.io/github/essentialkaos/translit) [![License](https://gh.kaos.io/ekol.svg)](https://essentialkaos.com/ekol)
 
 `translit` is a Go package for Russian text transliteration.
 
@@ -13,13 +13,13 @@ git config --global http.https://pkg.re.followRedirects true
 Make sure you have a working Go 1.5+ workspace ([instructions](https://golang.org/doc/install)), then:
 
 ```
-go get pkg.re/essentialkaos/translit.v1
+go get pkg.re/essentialkaos/translit.v2
 ```
 
 For update to latest stable release, do:
 
 ```
-go get -u pkg.re/essentialkaos/translit.v1
+go get -u pkg.re/essentialkaos/translit.v2
 ```
 
 ### Build Status

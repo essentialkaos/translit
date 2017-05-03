@@ -25,42 +25,90 @@ var _ = Suite(&TranslitSuite{})
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-func (ts *TranslitSuite) TestUniversal(c *C) {
-	c.Assert(Universal(""), Equals, "")
+func (ts *TranslitSuite) TestScientific(c *C) {
+	c.Assert(EncodeToScientific(""), Equals, "")
 
-	c.Assert(Universal(
+	c.Assert(EncodeToScientific(
 		"Pack my box with five dozen liquor jugs."), Equals,
 		"Pack my box with five dozen liquor jugs.")
 
 	c.Assert(
-		Universal("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
-		"Jej, zhlob! Gde tuz? Prjach' junyh s\"jomshhic v shkaf.")
+		EncodeToScientific("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"Èj, žlob! Gde tuz? Prjač′ junych s″ëmščic v škaf.")
 }
 
-func (ts *TranslitSuite) TestGOST(c *C) {
-	c.Assert(GOST779B(""), Equals, "")
+func (ts *TranslitSuite) TestISO9A(c *C) {
+	c.Assert(EncodeToISO9A(""), Equals, "")
 
-	c.Assert(GOST779B(
+	c.Assert(EncodeToISO9A(
 		"Pack my box with five dozen liquor jugs."), Equals,
 		"Pack my box with five dozen liquor jugs.")
 
 	c.Assert(
-		GOST779B("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
-		"Ehj, zhlob! Gde tuz? Pryach' yunyx s\"yomshhic v shkaf.")
+		EncodeToISO9A("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"Èj, žlob! Gde tuz? Prâč′ ûnyh s″ëmŝic v škaf.")
 }
 
-func (ts *TranslitSuite) TestISO(c *C) {
-	c.Assert(ISO9(""), Equals, "")
+func (ts *TranslitSuite) TestISO9B(c *C) {
+	c.Assert(EncodeToISO9B(""), Equals, "")
 
-	c.Assert(ISO9(
+	c.Assert(EncodeToISO9B(
 		"Pack my box with five dozen liquor jugs."), Equals,
 		"Pack my box with five dozen liquor jugs.")
 
 	c.Assert(
-		ISO9("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
-		"Èj, žlob! Gde tuz? Prâč' ûnyh s\"ëmŝic v škaf.")
+		EncodeToISO9B("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"E`j, zhlob! Gde tuz? Pryach` yuny`x s``yomshhicz v shkaf.")
+
+	c.Assert(EncodeToISO9B("Цепленок"), Equals, "Сeplenok")
 }
 
-func (ts *TranslitSuite) TestYo(c *C) {
-	c.Assert(Universal("Ёжик"), Equals, "Jozhik")
+func (ts *TranslitSuite) TestBGN(c *C) {
+	c.Assert(EncodeToBGN(""), Equals, "")
+
+	c.Assert(EncodeToBGN(
+		"Pack my box with five dozen liquor jugs."), Equals,
+		"Pack my box with five dozen liquor jugs.")
+
+	c.Assert(
+		EncodeToPCGN("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"Ey, zhlob! Gde tuz? Pryach′ yunykh s″ëmshchits v shkaf.")
+
+	c.Assert(EncodeToPCGN("Ёжик"), Equals, "Yëzhik")
+}
+
+func (ts *TranslitSuite) TestALALC(c *C) {
+	c.Assert(EncodeToALALC(""), Equals, "")
+
+	c.Assert(EncodeToALALC(
+		"Pack my box with five dozen liquor jugs."), Equals,
+		"Pack my box with five dozen liquor jugs.")
+
+	c.Assert(
+		EncodeToALALC("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"Ėĭ, zhlob! Gde tuz? Pri͡ach′ i͡unykh s″ëmshchit͡s v shkaf.")
+}
+
+func (ts *TranslitSuite) TestBS(c *C) {
+	c.Assert(EncodeToBS(""), Equals, "")
+
+	c.Assert(EncodeToBS(
+		"Pack my box with five dozen liquor jugs."), Equals,
+		"Pack my box with five dozen liquor jugs.")
+
+	c.Assert(
+		EncodeToBS("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"Ėĭ, zhlob! Gde tuz? Pri͡ach′ i͡unykh s″ëmshchit͡s v shkaf.")
+}
+
+func (ts *TranslitSuite) TestICAO(c *C) {
+	c.Assert(EncodeToICAO(""), Equals, "")
+
+	c.Assert(EncodeToICAO(
+		"Pack my box with five dozen liquor jugs."), Equals,
+		"Pack my box with five dozen liquor jugs.")
+
+	c.Assert(
+		EncodeToICAO("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
+		"Ei, zhlob! Gde tuz? Priach iunykh sieemshchits v shkaf.")
 }
