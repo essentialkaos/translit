@@ -2,6 +2,16 @@
 
 `translit` is a Go package for Russian text transliteration.
 
+Supported output formats:
+
+* Scientific
+* ISO 9:1995/A ГОСТ 7.79-2000/A
+* ISO 9:1995/B ГОСТ 7.79-2000/Б
+* BGN/PCGN
+* ALA-LC
+* BS 2979:1958
+* ICAO
+
 ### Installation
 
 Before the initial install allows git to use redirects for [pkg.re](https://github.com/essentialkaos/pkgre) service (reason why you should do this described [here](https://github.com/essentialkaos/pkgre#git-support)):
