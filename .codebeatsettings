@@ -1,5 +1,7 @@
 {
   "GOLANG": {
+    "ARITY": [6, 8, 9, 12],
+    "LOC": [50, 75, 100, 150],
     "TOO_MANY_IVARS": [12, 16, 20, 24],
     "TOO_MANY_FUNCTIONS": [50, 70, 90, 120],
     "TOTAL_LOC": [500, 750, 1000, 2000]
