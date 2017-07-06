@@ -42,3 +42,5 @@ go get -u pkg.re/essentialkaos/translit.v2
 ### License
 
 [EKOL](https://essentialkaos.com/ekol)
+
+<p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.io/ekgh.svg"/></a></p>
