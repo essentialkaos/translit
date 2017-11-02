@@ -3,9 +3,9 @@ sudo: false
 language: go
 
 go:
-  - 1.6.x
   - 1.7.x
   - 1.8.x
+  - 1.9.x
   - tip
 
 os:
@@ -24,7 +24,9 @@ matrix:
 before_install:
   - make deps-test
   - go get -v github.com/mattn/goveralls
+  - npm install -g codeclimate-test-reporter
 
 script:
   - go test -covermode count -coverprofile cover.out
   - goveralls -service travis-ci -repotoken $COVERALLS_TOKEN -coverprofile cover.out
+  - codeclimate-test-reporter < cover.out
