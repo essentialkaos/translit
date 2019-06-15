@@ -3,7 +3,7 @@ package translit
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                     Copyright (c) 2009-2018 ESSENTIAL KAOS                         //
+//                     Copyright (c) 2009-2019 ESSENTIAL KAOS                         //
 //        Essential Kaos Open Source License <https://essentialkaos.com/ekol>         //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -100,42 +100,42 @@ var bgnSpecial = map[string]string{
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-// EncodeToScientific encode text with scientific mappings
+// EncodeToScientific encodes text with scientific mappings
 func EncodeToScientific(text string) string {
 	return encode(text, scientificRuEn, nil)
 }
 
-// EncodeToISO9A encode text with ISO 9:1995/A ГОСТ 7.79-2000/A mappings
+// EncodeToISO9A encodes text with ISO 9:1995/A ГОСТ 7.79-2000/A mappings
 func EncodeToISO9A(text string) string {
 	return encode(text, iso9ARuEn, nil)
 }
 
-// EncodeToISO9B encode text with ISO 9:1995/B ГОСТ 7.79-2000/Б mappings
+// EncodeToISO9B encodes text with ISO 9:1995/B ГОСТ 7.79-2000/Б mappings
 func EncodeToISO9B(text string) string {
 	return encode(text, iso9BRuEn, iso9BSpec)
 }
 
-// EncodeToBGN encode text with BGN mappings
+// EncodeToBGN encodes text with BGN mappings
 func EncodeToBGN(text string) string {
 	return encode(text, bgnRuEn, bgnSpec)
 }
 
-// EncodeToPCGN encode text with PCGN mappings
+// EncodeToPCGN encodes text with PCGN mappings
 func EncodeToPCGN(text string) string {
 	return encode(text, bgnRuEn, bgnSpec)
 }
 
-// EncodeToALALC encode text with ALA-LC mappings
+// EncodeToALALC encodes text with ALA-LC mappings
 func EncodeToALALC(text string) string {
 	return encode(text, alalcRuEn, nil)
 }
 
-// EncodeToBS encode text with BS 2979:1958 mappings
+// EncodeToBS encodes text with BS 2979:1958 mappings
 func EncodeToBS(text string) string {
 	return encode(text, alalcRuEn, nil)
 }
 
-// EncodeToBS encode text with ICAO mappings
+// EncodeToBS encodes text with ICAO mappings
 func EncodeToICAO(text string) string {
 	return encode(text, icaoRuEn, nil)
 }
