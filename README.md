@@ -46,8 +46,8 @@ go get -u pkg.re/essentialkaos/translit.v2
 
 | Branch | Status |
 |------------|--------|
-| `master` | [![Build Status](https://travis-ci.org/essentialkaos/translit.svg?branch=master)](https://travis-ci.org/essentialkaos/translit) |
-| `develop` | [![Build Status](https://travis-ci.org/essentialkaos/translit.svg?branch=develop)](https://travis-ci.org/essentialkaos/translit) |
+| `master` | [![Build Status](https://travis-ci.com/essentialkaos/translit.svg?branch=master)](https://travis-ci.com/essentialkaos/translit) |
+| `develop` | [![Build Status](https://travis-ci.com/essentialkaos/translit.svg?branch=develop)](https://travis-ci.com/essentialkaos/translit) |
 
 ### License
 
