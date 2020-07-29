@@ -2,6 +2,8 @@
 
 <p align="center">
   <a href="https://godoc.org/pkg.re/essentialkaos/translit.v2"><img src="https://godoc.org/pkg.re/essentialkaos/translit.v2?status.svg"></a>
+  <a href="https://travis-ci.com/essentialkaos/translit"><img src="https://travis-ci.com/essentialkaos/translit.svg"></a>
+  <a href="https://github.com/essentialkaos/translit/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/translit/workflows/CodeQL/badge.svg" /></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/translit"><img src="https://goreportcard.com/badge/github.com/essentialkaos/translit"></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-translit-master"><img alt="codebeat badge" src="https://codebeat.co/badges/15851ebb-6715-44b9-be66-0d13dee8b1ee" /></a>
   <a href='https://coveralls.io/github/essentialkaos/translit?branch=master'><img src='https://coveralls.io/repos/github/essentialkaos/translit/badge.svg?branch=master' alt='Coverage Status' /></a>
