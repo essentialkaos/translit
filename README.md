@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href=https://pkg.go.dev/github.com/essentialkaos/translit><img src="https://pkg.go.dev/badge/github.com/essentialkaos/translit" /></a>
-  <a href="https://travis-ci.com/essentialkaos/translit"><img src="https://travis-ci.com/essentialkaos/translit.svg"></a>
+  <a href="https://github.com/essentialkaos/translit/actions"><img src="https://github.com/essentialkaos/translit/workflows/CI/badge.svg" alt="GitHub Actions Status" /></a>
   <a href="https://github.com/essentialkaos/translit/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/translit/workflows/CodeQL/badge.svg" /></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/translit"><img src="https://goreportcard.com/badge/github.com/essentialkaos/translit"></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-translit-master"><img alt="codebeat badge" src="https://codebeat.co/badges/15851ebb-6715-44b9-be66-0d13dee8b1ee" /></a>
@@ -50,8 +50,8 @@ go get -u pkg.re/essentialkaos/translit.v2
 
 | Branch | Status |
 |------------|--------|
-| `master` | [![Build Status](https://travis-ci.com/essentialkaos/translit.svg?branch=master)](https://travis-ci.com/essentialkaos/translit) |
-| `develop` | [![Build Status](https://travis-ci.com/essentialkaos/translit.svg?branch=develop)](https://travis-ci.com/essentialkaos/translit) |
+| `master` | [![CI](https://github.com/essentialkaos/translit/workflows/CI/badge.svg?branch=master)](https://github.com/essentialkaos/translit/actions) |
+| `develop` | [![CI](https://github.com/essentialkaos/translit/workflows/CI/badge.svg?branch=develop)](https://github.com/essentialkaos/translit/actions) |
 
 ### License
 
