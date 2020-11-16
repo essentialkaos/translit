@@ -42,13 +42,9 @@ jobs:
         working-directory: ${{env.SRC_DIR}}
         run: make deps-test
 
-      - name: Build binary
-        working-directory: ${{env.SRC_DIR}}
-        run: make all
-
       - name: Run tests
         working-directory: ${{env.SRC_DIR}}
-        run: go test -covermode=count ./parser ./recipe -coverprofile=cover.out
+        run: go test -covermode count -coverprofile cover.out
 
       - name: Install goveralls
         env:
