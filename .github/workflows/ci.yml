@@ -9,8 +9,8 @@ on:
     - cron: '0 14 */15 * *'
 
 jobs:
-  Ubuntu:
-    name: Linux
+  Go:
+    name: Go
     runs-on: ubuntu-latest
 
     env:
