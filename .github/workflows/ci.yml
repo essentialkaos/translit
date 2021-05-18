@@ -15,7 +15,6 @@ jobs:
 
     env:
       SRC_DIR: src/github.com/${{ github.repository }}
-      GO111MODULE: auto
 
     strategy:
       matrix:
