@@ -1,12 +1,12 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/go-translit.svg"/></a></p>
 
 <p align="center">
-  <a href="https://pkg.re/essentialkaos/translit.v2?docs"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev"></a>
-  <a href="https://github.com/essentialkaos/translit/actions"><img src="https://github.com/essentialkaos/translit/workflows/CI/badge.svg" alt="GitHub Actions Status" /></a>
-  <a href="https://github.com/essentialkaos/translit/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/translit/workflows/CodeQL/badge.svg" /></a>
-  <a href="https://goreportcard.com/report/github.com/essentialkaos/translit"><img src="https://goreportcard.com/badge/github.com/essentialkaos/translit"></a>
-  <a href="https://codebeat.co/projects/github-com-essentialkaos-translit-master"><img alt="codebeat badge" src="https://codebeat.co/badges/15851ebb-6715-44b9-be66-0d13dee8b1ee" /></a>
-  <a href='https://coveralls.io/github/essentialkaos/translit?branch=master'><img src='https://coveralls.io/repos/github/essentialkaos/translit/badge.svg?branch=master' alt='Coverage Status' /></a>
+  <a href="https://kaos.sh/g/translit.v2?docs"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev"></a>
+  <a href="https://kaos.sh/r/translit"><img src="https://kaos.sh/r/translit.svg" alt="GoReportCard" /></a>
+  <a href="https://kaos.sh/w/translit/codeql"><img src="https://kaos.sh/w/translit/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
+  <a href="https://kaos.sh/r/translit"><img src="https://kaos.sh/r/translit.svg" alt="GoReportCard" /></a>
+  <a href="https://kaos.sh/b/ek"><img src="https://codebeat.co/badges/15851ebb-6715-44b9-be66-0d13dee8b1ee" alt="Codebeat badge" /></a>
+  <a href="https://kaos.sh/c/translit"><img src="https://kaos.sh/c/translit.svg" alt="Coverage Status" /></a>
   <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
 </p>
 
@@ -28,7 +28,7 @@ Supported output formats:
 
 ### Installation
 
-Make sure you have a working Go 1.14+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.15+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
 go get pkg.re/essentialkaos/translit.v2
@@ -44,8 +44,8 @@ go get -u pkg.re/essentialkaos/translit.v2
 
 | Branch | Status |
 |------------|--------|
-| `master` | [![CI](https://github.com/essentialkaos/translit/workflows/CI/badge.svg?branch=master)](https://github.com/essentialkaos/translit/actions) |
-| `develop` | [![CI](https://github.com/essentialkaos/translit/workflows/CI/badge.svg?branch=develop)](https://github.com/essentialkaos/translit/actions) |
+| `master` | [![CI](https://kaos.sh/w/translit/ci.svg?branch=master)](https://kaos.sh/w/translit/ci?query=branch:master) |
+| `develop` | [![CI](https://kaos.sh/w/translit/ci.svg?branch=develop)](https://kaos.sh/w/translit/ci?query=branch:develop) |
 
 ### License
 
