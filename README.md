@@ -28,16 +28,16 @@ Supported output formats:
 
 ### Installation
 
-Make sure you have a working Go 1.16+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
-go get pkg.re/essentialkaos/translit.v2
+go get github.com/essentialkaos/translit/v2
 ```
 
 For update to latest stable release, do:
 
 ```
-go get -u pkg.re/essentialkaos/translit.v2
+go get -u github.com/essentialkaos/translit/v2
 ```
 
 ### Build Status
