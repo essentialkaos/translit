@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: '0 14 */15 * *'
 
+permissions:
+  actions: read
+  contents: read
+  statuses: write
+
 jobs:
   Go:
     name: Go
@@ -23,7 +28,7 @@ jobs:
 
     steps:
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go }}
         id: go
@@ -71,7 +76,9 @@ jobs:
         env:
           CODECLIMATE_API_HOST: https://codebeat.co/webhooks/code_coverage
           CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_TOKEN }}
-        run: codeclimate-test-reporter < cover.out
+        run: |
+          sed -i'.original' 's#/v[0-9]\+/#/#g' cover.out
+          codeclimate-test-reporter < cover.out
 
   Aligo:
     name: Aligo
@@ -85,7 +92,7 @@ jobs:
 
     steps:
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: '1.17.x'
         id: go
