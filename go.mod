@@ -2,7 +2,7 @@ module github.com/essentialkaos/translit/v2
 
 go 1.17
 
-require github.com/essentialkaos/check v1.2.1
+require github.com/essentialkaos/check v1.3.0
 
 require (
 	github.com/kr/pretty v0.3.0 // indirect
