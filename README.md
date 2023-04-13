@@ -28,13 +28,7 @@ Supported output formats:
 
 ### Installation
 
-Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
-
-```
-go get github.com/essentialkaos/translit/v2
-```
-
-For update to latest stable release, do:
+Make sure you have a working Go 1.14+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
 go get -u github.com/essentialkaos/translit/v2
