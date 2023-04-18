@@ -89,7 +89,7 @@ var icaoRuEn = map[string]string{
 	"Ь": "", "ь": "", "Э": "E", "э": "e", "Ю": "Iu", "ю": "iu", "Я": "Ia", "я": "ia",
 }
 
-var iso9BSpeical = map[string]string{
+var iso9BSpecial = map[string]string{
 	"ц": "cz", "Ц": "Cz", "ц+": "с", "Ц+": "С",
 }
 
@@ -269,10 +269,10 @@ func iso9BSpec(p, c, n rune, extMap map[string]string) (string, bool) {
 
 	switch rr {
 	case "e", "i", "y", "j", "E", "I", "Y", "J":
-		return iso9BSpeical[string(c)+"+"], true
+		return iso9BSpecial[string(c)+"+"], true
 	}
 
-	return iso9BSpeical[string(c)], true
+	return iso9BSpecial[string(c)], true
 }
 
 func bgnSpec(p, c, n rune, extMap map[string]string) (string, bool) {
