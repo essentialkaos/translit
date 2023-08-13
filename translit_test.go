@@ -98,7 +98,7 @@ func (ts *TranslitSuite) TestBS(c *C) {
 
 	c.Assert(
 		EncodeToBS("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
-		"Ėĭ, zhlob! Gde tuz? Pri͡ach′ i͡unykh s″ëmshchit͡s v shkaf.")
+		"Éĭ, zhlob! Gde tuz? Pryach′ yunȳkh s″ëmshchits v shkaf.")
 }
 
 func (ts *TranslitSuite) TestICAO(c *C) {

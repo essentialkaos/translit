@@ -69,10 +69,10 @@ var bgnRuEn = map[string]string{
 }
 
 var bsRuEn = map[string]string{
-	"Е": "e", "е": "e", "Ё": "ë", "ё": "ë", "Ж": "zh", "ж": "zh", "Й": "ĭ", "й": "ĭ",
-	"Х": "kh", "х": "kh", "Ц": "ts", "ц": "ts", "Ч": "ch", "ч": "ch", "Ш": "sh",
-	"ш": "sh", "Щ": "shch", "щ": "shch", "Ъ": "″", "ъ": "″", "Ы": "ȳ", "ы": "ȳ",
-	"Ь": "′", "ь": "′", "Э": "é", "э": "é", "Ю": "yu", "ю": "yu", "Я": "ya", "я": "ya",
+	"Е": "E", "е": "e", "Ё": "Ë", "ё": "ë", "Ж": "Zh", "ж": "zh", "Й": "Ĭ", "й": "ĭ",
+	"Х": "Kh", "х": "kh", "Ц": "Ts", "ц": "ts", "Ч": "Ch", "ч": "ch", "Ш": "Sh",
+	"ш": "sh", "Щ": "Shch", "щ": "shch", "Ъ": "″", "ъ": "″", "Ы": "Ȳ", "ы": "ȳ",
+	"Ь": "′", "ь": "′", "Э": "É", "э": "é", "Ю": "Yu", "ю": "yu", "Я": "Ya", "я": "ya",
 }
 
 var alalcRuEn = map[string]string{
@@ -188,7 +188,7 @@ func ALALC(text string) string {
 
 // BS encodes text with BS 2979:1958 mappings
 func BS(text string) string {
-	return encode(text, alalcRuEn, nil)
+	return encode(text, bsRuEn, nil)
 }
 
 // ICAO encodes text with ICAO mappings
