@@ -2,7 +2,7 @@ package translit
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -49,7 +49,7 @@ func ExampleEncodeToALALC() {
 
 func ExampleEncodeToBS() {
 	fmt.Println(EncodeToBS(source))
-	// output: Shirokai͡a ėlektrifikat͡sii͡a i͡uzhnykh guberniĭ dast moshchnyĭ tolchok pod″ëmu sel′skogo khozi͡aĭstva.
+	// output: Shirokaya élektrifikatsiya yuzhnȳkh guberniĭ dast moshchnȳĭ tolchok pod″ëmu sel′skogo khozyaĭstva.
 }
 
 func ExampleEncodeToICAO() {

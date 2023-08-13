@@ -2,7 +2,7 @@ package translit
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -98,7 +98,7 @@ func (ts *TranslitSuite) TestBS(c *C) {
 
 	c.Assert(
 		EncodeToBS("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
-		"Ėĭ, zhlob! Gde tuz? Pri͡ach′ i͡unykh s″ëmshchit͡s v shkaf.")
+		"Éĭ, zhlob! Gde tuz? Pryach′ yunȳkh s″ëmshchits v shkaf.")
 }
 
 func (ts *TranslitSuite) TestICAO(c *C) {
