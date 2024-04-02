@@ -3,7 +3,7 @@ package translit
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2024 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -137,7 +137,7 @@ func EncodeToBS(text string) string {
 
 // EncodeToBS encodes text with ICAO mappings
 //
-// Deprecated: Use Scientific method instead
+// Deprecated: Use ICAO method instead
 func EncodeToICAO(text string) string {
 	return ICAO(text)
 }
