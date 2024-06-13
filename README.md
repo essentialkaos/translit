@@ -12,7 +12,7 @@
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
-<p align="center"><a href="#installation">Installation</a> • <a href="#ci-status">CI Status</a> • <a href="#license">License</a></p>
+<p align="center"><a href="#ci-status">CI Status</a> • <a href="#license">License</a></p>
 
 <br/>
 
@@ -27,14 +27,6 @@ Supported output formats:
 * ALA-LC
 * BS 2979:1958
 * ICAO
-
-### Installation
-
-Make sure you have a working Go 1.18+ workspace (_[instructions](https://go.dev/doc/install)_), then:
-
-```
-go get -u github.com/essentialkaos/translit/v2
-```
 
 ### CI Status
 
