@@ -16,7 +16,7 @@
 
 <br/>
 
-`translit` is a Go package for Russian text transliteration.
+`translit` is a package for Go 1.19+ for transliteration of Russian text.
 
 Supported output formats:
 
@@ -26,7 +26,7 @@ Supported output formats:
 * BGN/PCGN
 * ALA-LC
 * BS 2979:1958
-* ICAO
+* ICAO (ИКАО)
 
 ### CI Status
 
