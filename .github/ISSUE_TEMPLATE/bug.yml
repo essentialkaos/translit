@@ -15,7 +15,7 @@ body:
   - type: textarea
     attributes:
       label: Module version info
-      description: Output of `go list -m -u github.com/essentialkaos/translit` command
+      description: Output of `grep 'github.com/essentialkaos/translit' go.sum` command
       render: shell
     validations:
       required: true
