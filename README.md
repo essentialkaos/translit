@@ -16,7 +16,7 @@
 
 <br/>
 
-`translit` is a package for Go 1.19+ for transliteration of Russian text.
+`translit` is a package for [Go 1.22+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) for transliteration of Russian text.
 
 Supported output formats:
 
