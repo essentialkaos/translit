@@ -114,6 +114,18 @@ func (ts *TranslitSuite) TestICAO(c *C) {
 		"Ei, zhlob! Gde tuz? Priach iunykh sieemshchits v shkaf.")
 }
 
+func (ts *TranslitSuite) TestCustom(c *C) {
+	c.Assert(Custom("", nil), Equals, "")
+
+	c.Assert(Custom(
+		"Pack my box with five dozen liquor jugs.", nil), Equals,
+		"Pack my box with five dozen liquor jugs.")
+
+	c.Assert(
+		Custom("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф.", nil), Equals,
+		"Eiy, jlob! Gde tuz? Pryach ynyh sieemshchic v shkaf.")
+}
+
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 func (ts *TranslitSuite) BenchmarkBasic(c *C) {

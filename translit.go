@@ -25,11 +25,11 @@ type specProc func(p, c, n rune, mapping Map) (string, bool)
 var baseMap = Map{
 	'А': "A", 'а': "a", 'Б': "B", 'б': "b", 'В': "V", 'в': "v", 'Г': "G", 'г': "g",
 	'Д': "D", 'д': "d", 'Е': "E", 'е': "e", 'Ё': "E", 'ё': "e", 'Ж': "J", 'ж': "j",
-	'З': "Z", 'з': "z", 'И': "I", 'и': "i", 'Й': "IY", 'й': "Iy", 'К': "K", 'к': "k",
+	'З': "Z", 'з': "z", 'И': "I", 'и': "i", 'Й': "Iy", 'й': "iy", 'К': "K", 'к': "k",
 	'Л': "L", 'л': "l", 'М': "M", 'м': "m", 'Н': "N", 'н': "n", 'О': "O", 'о': "o",
 	'П': "P", 'п': "p", 'Р': "R", 'р': "r", 'С': "S", 'с': "s", 'Т': "T", 'т': "t",
-	'У': "U", 'у': "u", 'Ф': "F", 'ф': "f", 'Х': "Kh", 'х': "kh", 'Ц': "Ts",
-	'ц': "ts", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh", 'ш': "sh", 'Щ': "Shch", 'щ': "shch",
+	'У': "U", 'у': "u", 'Ф': "F", 'ф': "f", 'Х': "H", 'х': "h", 'Ц': "C",
+	'ц': "c", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh", 'ш': "sh", 'Щ': "Shch", 'щ': "shch",
 	'Ъ': "Ie", 'ъ': "ie", 'Ы': "Y", 'ы': "y", 'Ь': "", 'ь': "", 'Э': "E", 'э': "e",
 	'Ю': "Y", 'ю': "y", 'Я': "Ya", 'я': "ya",
 }
@@ -133,6 +133,11 @@ func BS(text string) string {
 // ICAO encodes text with ICAO mappings
 func ICAO(text string) string {
 	return encode(text, icaoMap, nil)
+}
+
+// Custom encodes text with custom mapping
+func Custom(text string, mapping Map) string {
+	return encode(text, mapping, nil)
 }
 
 // ////////////////////////////////////////////////////////////////////////////////// //
