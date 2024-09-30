@@ -4,7 +4,6 @@
   <a href="https://kaos.sh/g/translit.v2"><img src=".github/images/godoc.svg"/></a>
   <a href="https://kaos.sh/r/translit"><img src="https://kaos.sh/r/translit.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/l/translit"><img src="https://kaos.sh/l/806194996d2d2c82496c.svg" alt="Code Climate Maintainability" /></a>
-  <a href="https://kaos.sh/b/translit"><img src="https://kaos.sh/b/15851ebb-6715-44b9-be66-0d13dee8b1ee.svg" alt="Codebeat badge" /></a>
   <a href="https://kaos.sh/y/translit"><img src="https://kaos.sh/y/222ebbb777bf4867b05d302c23c3f77e.svg" alt="Codacy badge" /></a>
   <br/>
   <a href="https://kaos.sh/w/translit/ci"><img src="https://kaos.sh/w/translit/ci.svg" alt="GitHub Actions CI Status" /></a>
@@ -17,7 +16,7 @@
 
 <br/>
 
-`translit` is a package for Go 1.19+ for transliteration of Russian text.
+`translit` is a package for [Go 1.22+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) for transliteration of Russian text.
 
 Supported output formats:
 
@@ -27,7 +26,32 @@ Supported output formats:
 * BGN/PCGN
 * ALA-LC
 * BS 2979:1958
-* ICAO (ИКАО)
+* ICAO (_ИКАО_)
+
+### [Usage example](https://go.dev/play/p/PiuGUfXiM9y)
+
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+
+  "github.com/essentialkaos/translit/v3"
+)
+
+func main() {
+  firstName := "Владислав"
+  lastName := "Чернявенький"
+
+  transliterator := translit.ICAO
+
+  tFistName := transliterator(strings.ToLower(firstName))[:1]
+  tLastName := transliterator(strings.ToLower(lastName))
+
+  fmt.Printf("%s %s → %s.%s\n", firstName, lastName, tFistName, tLastName)
+}
+```
 
 ### CI Status
 

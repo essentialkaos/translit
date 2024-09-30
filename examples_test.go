@@ -56,3 +56,11 @@ func ExampleICAO() {
 	fmt.Println(ICAO(source))
 	// output: Shirokaia elektrifikatsiia iuzhnykh gubernii dast moshchnyi tolchok podieemu selskogo khoziaistva.
 }
+
+func ExampleCustom() {
+	fmt.Println(Custom(source, nil))
+	fmt.Println(Custom(source, Map{'Ю': "U", 'ю': "u"}))
+	// output:
+	// Shirokaya elektrifikaciya yjnyh guberniiy dast moshchnyiy tolchok podieemu selskogo hozyaiystva.
+	// Shirokaya elektrifikaciya ujnyh guberniiy dast moshchnyiy tolchok podieemu selskogo hozyaiystva.
+}
