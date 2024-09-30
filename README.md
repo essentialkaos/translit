@@ -26,7 +26,32 @@ Supported output formats:
 * BGN/PCGN
 * ALA-LC
 * BS 2979:1958
-* ICAO (ИКАО)
+* ICAO (_ИКАО_)
+
+### [Usage example](https://go.dev/play/p/PiuGUfXiM9y)
+
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+
+  "github.com/essentialkaos/translit/v3"
+)
+
+func main() {
+  firstName := "Владислав"
+  lastName := "Чернявенький"
+
+  transliterator := translit.ICAO
+
+  tFistName := transliterator(strings.ToLower(firstName))[:1]
+  tLastName := transliterator(strings.ToLower(lastName))
+
+  fmt.Printf("%s %s → %s.%s\n", firstName, lastName, tFistName, tLastName)
+}
+```
 
 ### CI Status
 
