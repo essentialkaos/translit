@@ -14,177 +14,130 @@ import (
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-type specProc func(p, c, n rune, extMap map[string]string) (string, bool)
+type Map map[rune]string
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-var baseRuEn = map[string]string{
-	"а": "a", "А": "A", "Б": "B", "б": "b", "В": "V", "в": "v", "Г": "G", "г": "g",
-	"Д": "D", "д": "d", "З": "Z", "з": "z", "И": "I", "и": "i", "К": "K", "к": "k",
-	"Л": "L", "л": "l", "М": "M", "м": "m", "Н": "N", "н": "n", "О": "O", "о": "o",
-	"П": "P", "п": "p", "Р": "R", "р": "r", "С": "S", "с": "s", "Т": "T", "т": "t",
-	"У": "U", "у": "u", "Ф": "F", "ф": "f",
-}
-
-var scientificRuEn = map[string]string{
-	"Е": "E", "е": "e", "Ё": "Ë", "ё": "ë", "Ж": "Ž", "ж": "ž", "Й": "J", "й": "j",
-	"Х": "Ch", "х": "ch", "Ц": "C", "ц": "c", "Ч": "Č", "ч": "č", "Ш": "Š", "ш": "š",
-	"Щ": "Šč", "щ": "šč", "Ъ": "″", "ъ": "″", "Ы": "Y", "ы": "y", "Ь": "′", "ь": "′",
-	"Э": "È", "э": "è", "Ю": "Ju", "ю": "ju", "Я": "Ja", "я": "ja",
-}
-
-var iso9ARuEn = map[string]string{
-	"Е": "E", "е": "e", "Ё": "Ë", "ё": "ë", "Ж": "Ž", "ж": "ž", "Й": "J", "й": "j",
-	"Х": "H", "х": "h", "Ц": "C", "ц": "c", "Ч": "Č", "ч": "č", "Ш": "Š", "ш": "š",
-	"Щ": "Ŝ", "щ": "ŝ", "Ъ": "″", "ъ": "″", "Ы": "Y", "ы": "y", "Ь": "′", "ь": "′",
-	"Э": "È", "э": "è", "Ю": "Û", "ю": "û", "Я": "Â", "я": "â",
-}
-
-var iso9BRuEn = map[string]string{
-	"Е": "E", "е": "e", "Ё": "Yo", "ё": "yo", "Ж": "Zh", "ж": "zh", "Й": "J", "й": "j",
-	"Х": "X", "х": "x", "Ч": "Ch", "ч": "ch", "Ш": "Sh", "ш": "sh", "Щ": "Shh",
-	"щ": "shh", "Ъ": "``", "ъ": "``", "Ы": "Y`", "ы": "y`", "Ь": "`", "ь": "`",
-	"Э": "E`", "э": "e`", "Ю": "Yu", "ю": "yu", "Я": "Ya", "я": "ya",
-}
-
-var bgnRuEn = map[string]string{
-	"Ж": "Zh", "ж": "zh", "И": "I", "и": "i", "Й": "Y", "й": "y", "Х": "Kh", "х": "kh",
-	"Ц": "Ts", "ц": "ts", "Ч": "Ch", "ч": "ch", "Ш": "Sh", "ш": "sh", "Щ": "Shch",
-	"щ": "shch", "Ъ": "″", "ъ": "″", "Ы": "Y", "ы": "y", "Ь": "′", "ь": "′", "Э": "E",
-	"э": "e", "Ю": "Yu", "ю": "yu", "Я": "Ya", "я": "ya",
-}
-
-var bsRuEn = map[string]string{
-	"Е": "E", "е": "e", "Ё": "Ë", "ё": "ë", "Ж": "Zh", "ж": "zh", "Й": "Ĭ", "й": "ĭ",
-	"Х": "Kh", "х": "kh", "Ц": "Ts", "ц": "ts", "Ч": "Ch", "ч": "ch", "Ш": "Sh",
-	"ш": "sh", "Щ": "Shch", "щ": "shch", "Ъ": "″", "ъ": "″", "Ы": "Ȳ", "ы": "ȳ",
-	"Ь": "′", "ь": "′", "Э": "É", "э": "é", "Ю": "Yu", "ю": "yu", "Я": "Ya", "я": "ya",
-}
-
-var alalcRuEn = map[string]string{
-	"Е": "E", "е": "e", "Ё": "Ë", "ё": "ë", "Ж": "Zh", "ж": "zh", "Й": "Ĭ", "й": "ĭ",
-	"Х": "Kh", "х": "kh", "Ц": "T͡s", "ц": "t͡s", "Ч": "Ch", "ч": "ch", "Ш": "Sh",
-	"ш": "sh", "Щ": "Shch", "щ": "shch", "Ъ": "″", "ъ": "″", "Ы": "Y", "ы": "y",
-	"Ь": "′", "ь": "′", "Э": "Ė", "э": "ė", "Ю": "I͡u", "ю": "i͡u", "Я": "I͡a", "я": "i͡a",
-}
-
-var icaoRuEn = map[string]string{
-	"Е": "E", "е": "e", "Ё": "E", "ё": "e", "Ж": "Zh", "ж": "zh", "Й": "I", "й": "i",
-	"Х": "Kh", "х": "kh", "Ц": "Ts", "ц": "ts", "Ч": "Ch", "ч": "ch", "Ш": "Sh",
-	"ш": "sh", "Щ": "Shch", "щ": "shch", "Ъ": "Ie", "ъ": "ie", "Ы": "Y", "ы": "y",
-	"Ь": "", "ь": "", "Э": "E", "э": "e", "Ю": "Iu", "ю": "iu", "Я": "Ia", "я": "ia",
-}
-
-var iso9BSpecial = map[string]string{
-	"ц": "cz", "Ц": "Cz", "ц+": "с", "Ц+": "С",
-}
-
-var bgnSpecial = map[string]string{
-	"е": "e", "Е": "E", "ё": "ë", "Ё": "Ë",
-	"е+": "ye", "Е+": "Ye", "ё+": "yë", "Ё+": "Yë",
-}
+type specProc func(p, c, n rune, mapping Map) (string, bool)
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-// EncodeToScientific encodes text with scientific mappings
-//
-// Deprecated: Use Scientific method instead
-func EncodeToScientific(text string) string {
-	return Scientific(text)
+var baseMap = Map{
+	'А': "A", 'а': "a", 'Б': "B", 'б': "b", 'В': "V", 'в': "v", 'Г': "G", 'г': "g",
+	'Д': "D", 'д': "d", 'Е': "E", 'е': "e", 'Ё': "E", 'ё': "e", 'Ж': "J", 'ж': "j",
+	'З': "Z", 'з': "z", 'И': "I", 'и': "i", 'Й': "IY", 'й': "Iy", 'К': "K", 'к': "k",
+	'Л': "L", 'л': "l", 'М': "M", 'м': "m", 'Н': "N", 'н': "n", 'О': "O", 'о': "o",
+	'П': "P", 'п': "p", 'Р': "R", 'р': "r", 'С': "S", 'с': "s", 'Т': "T", 'т': "t",
+	'У': "U", 'у': "u", 'Ф': "F", 'ф': "f", 'Х': "Kh", 'х': "kh", 'Ц': "Ts",
+	'ц': "ts", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh", 'ш': "sh", 'Щ': "Shch", 'щ': "shch",
+	'Ъ': "Ie", 'ъ': "ie", 'Ы': "Y", 'ы': "y", 'Ь': "", 'ь': "", 'Э': "E", 'э': "e",
+	'Ю': "Y", 'ю': "y", 'Я': "Ya", 'я': "ya",
 }
 
-// EncodeToISO9A encodes text with ISO 9:1995/A ГОСТ 7.79-2000/A mappings
-//
-// Deprecated: Use ISO9A method instead
-func EncodeToISO9A(text string) string {
-	return ISO9A(text)
-}
+var (
+	scientificMap = Map{
+		'Е': "E", 'е': "e", 'Ё': "Ë", 'ё': "ë", 'Ж': "Ž", 'ж': "ž", 'Й': "J", 'й': "j",
+		'Х': "Ch", 'х': "ch", 'Ц': "C", 'ц': "c", 'Ч': "Č", 'ч': "č", 'Ш': "Š", 'ш': "š",
+		'Щ': "Šč", 'щ': "šč", 'Ъ': "″", 'ъ': "″", 'Ы': "Y", 'ы': "y", 'Ь': "′", 'ь': "′",
+		'Э': "È", 'э': "è", 'Ю': "Ju", 'ю': "ju", 'Я': "Ja", 'я': "ja",
+	}
 
-// EncodeToISO9B encodes text with ISO 9:1995/B ГОСТ 7.79-2000/Б mappings
-//
-// Deprecated: Use ISO9B method instead
-func EncodeToISO9B(text string) string {
-	return ISO9B(text)
-}
+	iso9AMap = Map{
+		'Е': "E", 'е': "e", 'Ё': "Ë", 'ё': "ë", 'Ж': "Ž", 'ж': "ž", 'Й': "J", 'й': "j",
+		'Х': "H", 'х': "h", 'Ц': "C", 'ц': "c", 'Ч': "Č", 'ч': "č", 'Ш': "Š", 'ш': "š",
+		'Щ': "Ŝ", 'щ': "ŝ", 'Ъ': "″", 'ъ': "″", 'Ы': "Y", 'ы': "y", 'Ь': "′", 'ь': "′",
+		'Э': "È", 'э': "è", 'Ю': "Û", 'ю': "û", 'Я': "Â", 'я': "â",
+	}
 
-// EncodeToBGN encodes text with BGN mappings
-//
-// Deprecated: Use BGN method instead
-func EncodeToBGN(text string) string {
-	return BGN(text)
-}
+	iso9BMap = Map{
+		'Е': "E", 'е': "e", 'Ё': "Yo", 'ё': "yo", 'Ж': "Zh", 'ж': "zh", 'Й': "J", 'й': "j",
+		'Х': "X", 'х': "x", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh", 'ш': "sh", 'Щ': "Shh",
+		'щ': "shh", 'Ъ': "``", 'ъ': "``", 'Ы': "Y`", 'ы': "y`", 'Ь': "`", 'ь': "`",
+		'Э': "E`", 'э': "e`", 'Ю': "Yu", 'ю': "yu", 'Я': "Ya", 'я': "ya",
+	}
 
-// EncodeToPCGN encodes text with PCGN mappings
-//
-// Deprecated: Use PCGN method instead
-func EncodeToPCGN(text string) string {
-	return PCGN(text)
-}
+	bgnMap = Map{
+		'Ж': "Zh", 'ж': "zh", 'И': "I", 'и': "i", 'Й': "Y", 'й': "y", 'Х': "Kh", 'х': "kh",
+		'Ц': "Ts", 'ц': "ts", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh", 'ш': "sh", 'Щ': "Shch",
+		'щ': "shch", 'Ъ': "″", 'ъ': "″", 'Ы': "Y", 'ы': "y", 'Ь': "′", 'ь': "′", 'Э': "E",
+		'э': "e", 'Ю': "Yu", 'ю': "yu", 'Я': "Ya", 'я': "ya",
+	}
 
-// EncodeToALALC encodes text with ALA-LC mappings
-//
-// Deprecated: Use ALALC method instead
-func EncodeToALALC(text string) string {
-	return ALALC(text)
-}
+	bsMap = Map{
+		'Е': "E", 'е': "e", 'Ё': "Ë", 'ё': "ë", 'Ж': "Zh", 'ж': "zh", 'Й': "Ĭ", 'й': "ĭ",
+		'Х': "Kh", 'х': "kh", 'Ц': "Ts", 'ц': "ts", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh",
+		'ш': "sh", 'Щ': "Shch", 'щ': "shch", 'Ъ': "″", 'ъ': "″", 'Ы': "Ȳ", 'ы': "ȳ",
+		'Ь': "′", 'ь': "′", 'Э': "É", 'э': "é", 'Ю': "Yu", 'ю': "yu", 'Я': "Ya", 'я': "ya",
+	}
 
-// EncodeToBS encodes text with BS 2979:1958 mappings
-//
-// Deprecated: Use BS method instead
-func EncodeToBS(text string) string {
-	return BS(text)
-}
+	alalcMap = Map{
+		'Е': "E", 'е': "e", 'Ё': "Ë", 'ё': "ë", 'Ж': "Zh", 'ж': "zh", 'Й': "Ĭ", 'й': "ĭ",
+		'Х': "Kh", 'х': "kh", 'Ц': "T͡s", 'ц': "t͡s", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh",
+		'ш': "sh", 'Щ': "Shch", 'щ': "shch", 'Ъ': "″", 'ъ': "″", 'Ы': "Y", 'ы': "y",
+		'Ь': "′", 'ь': "′", 'Э': "Ė", 'э': "ė", 'Ю': "I͡u", 'ю': "i͡u", 'Я': "I͡a", 'я': "i͡a",
+	}
 
-// EncodeToBS encodes text with ICAO mappings
-//
-// Deprecated: Use ICAO method instead
-func EncodeToICAO(text string) string {
-	return ICAO(text)
-}
+	icaoMap = Map{
+		'Е': "E", 'е': "e", 'Ё': "E", 'ё': "e", 'Ж': "Zh", 'ж': "zh", 'Й': "I", 'й': "i",
+		'Х': "Kh", 'х': "kh", 'Ц': "Ts", 'ц': "ts", 'Ч': "Ch", 'ч': "ch", 'Ш': "Sh",
+		'ш': "sh", 'Щ': "Shch", 'щ': "shch", 'Ъ': "Ie", 'ъ': "ie", 'Ы': "Y", 'ы': "y",
+		'Ь': "", 'ь': "", 'Э': "E", 'э': "e", 'Ю': "Iu", 'ю': "iu", 'Я': "Ia", 'я': "ia",
+	}
+)
+
+var (
+	iso9BExt1 = Map{'ц': "cz", 'Ц': "Cz"}
+	iso9BExt2 = Map{'ц': "с", 'Ц': "С"}
+
+	bgnExt1 = Map{'е': "e", 'Е': "E", 'ё': "ë", 'Ё': "Ë"}
+	bgnExt2 = Map{'е': "ye", 'Е': "Ye", 'ё': "yë", 'Ё': "Yë"}
+)
+
+// ////////////////////////////////////////////////////////////////////////////////// //
 
 // Scientific encodes text with scientific mappings
 func Scientific(text string) string {
-	return encode(text, scientificRuEn, nil)
+	return encode(text, scientificMap, nil)
 }
 
 // ISO9A encodes text with ISO 9:1995/A ГОСТ 7.79-2000/A mappings
 func ISO9A(text string) string {
-	return encode(text, iso9ARuEn, nil)
+	return encode(text, iso9AMap, nil)
 }
 
 // ISO9B encodes text with ISO 9:1995/B ГОСТ 7.79-2000/Б mappings
 func ISO9B(text string) string {
-	return encode(text, iso9BRuEn, iso9BSpec)
+	return encode(text, iso9BMap, iso9BSpec)
 }
 
 // BGN encodes text with BGN mappings
 func BGN(text string) string {
-	return encode(text, bgnRuEn, bgnSpec)
+	return encode(text, bgnMap, bgnSpec)
 }
 
 // PCGN encodes text with PCGN mappings
 func PCGN(text string) string {
-	return encode(text, bgnRuEn, bgnSpec)
+	return encode(text, bgnMap, bgnSpec)
 }
 
 // ALALC encodes text with ALA-LC mappings
 func ALALC(text string) string {
-	return encode(text, alalcRuEn, nil)
+	return encode(text, alalcMap, nil)
 }
 
 // BS encodes text with BS 2979:1958 mappings
 func BS(text string) string {
-	return encode(text, bsRuEn, nil)
+	return encode(text, bsMap, nil)
 }
 
 // ICAO encodes text with ICAO mappings
 func ICAO(text string) string {
-	return encode(text, icaoRuEn, nil)
+	return encode(text, icaoMap, nil)
 }
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-func encode(text string, extMap map[string]string, proc specProc) string {
+func encode(text string, mapping Map, proc specProc) string {
 	if text == "" {
 		return ""
 	}
@@ -215,7 +168,7 @@ func encode(text string, extMap map[string]string, proc specProc) string {
 
 			input.UnreadRune()
 
-			rr, ok = proc(p, r, n, extMap)
+			rr, ok = proc(p, r, n, mapping)
 
 			if ok {
 				output.WriteString(rr)
@@ -225,43 +178,53 @@ func encode(text string, extMap map[string]string, proc specProc) string {
 
 		p = r
 
-		rr, ok = baseRuEn[string(r)]
-
-		if ok {
-			output.WriteString(rr)
+		if mapping != nil && mapping[r] != "" {
+			output.WriteString(mapping[r])
 			continue
 		}
 
-		rr, ok = extMap[string(r)]
-
-		if ok {
-			output.WriteString(rr)
+		if baseMap[r] != "" {
+			output.WriteString(baseMap[r])
+			continue
 		}
 	}
 
 	return output.String()
 }
 
-func iso9BSpec(p, c, n rune, extMap map[string]string) (string, bool) {
-	if c != 'ц' && c != 'Ц' {
+func isRussianChar(r rune) bool {
+	switch {
+	case r >= 1040 && r <= 1103,
+		r == 1105, r == 1025:
+		return true
+	}
+
+	return false
+}
+
+func iso9BSpec(p, c, n rune, mapping Map) (string, bool) {
+	switch c {
+	case 'ц', 'Ц':
+		// nop
+	default:
 		return "", false
 	}
 
-	rr, ok := baseRuEn[string(n)]
+	rr := mapping[n]
 
-	if !ok {
-		rr = extMap[string(n)]
+	if rr == "" {
+		rr = baseMap[n]
 	}
 
 	switch rr {
 	case "e", "i", "y", "j", "E", "I", "Y", "J":
-		return iso9BSpecial[string(c)+"+"], true
+		return iso9BExt2[c], true
 	}
 
-	return iso9BSpecial[string(c)], true
+	return iso9BExt1[c], true
 }
 
-func bgnSpec(p, c, n rune, extMap map[string]string) (string, bool) {
+func bgnSpec(p, c, n rune, mapping Map) (string, bool) {
 	switch c {
 	case 'е', 'Е', 'ё', 'Ё':
 		// nop
@@ -273,18 +236,8 @@ func bgnSpec(p, c, n rune, extMap map[string]string) (string, bool) {
 	case 0, ' ',
 		'а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю',
 		'А', 'У', 'О', 'Ы', 'И', 'Э', 'Я', 'Ю':
-		return bgnSpecial[string(c)+"+"], true
+		return bgnExt2[c], true
 	}
 
-	return bgnSpecial[string(c)], true
-}
-
-func isRussianChar(r rune) bool {
-	switch {
-	case r >= 1040 && r <= 1103,
-		r == 1105, r == 1025:
-		return true
-	}
-
-	return false
+	return bgnExt1[c], true
 }
