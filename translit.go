@@ -157,7 +157,7 @@ func encode(text string, mapping Map, proc specProc) string {
 			break
 		}
 
-		if !isRussianChar(r) {
+		if !isCyrillicRune(r) {
 			output.WriteRune(r)
 			p = r
 			continue
@@ -192,7 +192,7 @@ func encode(text string, mapping Map, proc specProc) string {
 	return output.String()
 }
 
-func isRussianChar(r rune) bool {
+func isCyrillicRune(r rune) bool {
 	switch {
 	case r >= 1040 && r <= 1103,
 		r == 1105, r == 1025:
