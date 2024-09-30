@@ -12,7 +12,7 @@
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
-<p align="center"><a href="#ci-status">CI Status</a> • <a href="#license">License</a></p>
+<p align="center"><a href="#ci-status">CI Status</a> • <a href="#usage-example">Usage Example</a> • <a href="#license">License</a></p>
 
 <br/>
 
