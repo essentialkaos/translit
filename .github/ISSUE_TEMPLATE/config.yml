@@ -8,3 +8,7 @@ contact_links:
   - name: Contributing Guidelines
     url: https://github.com/essentialkaos/contributing-guidelines/blob/master/CONTRIBUTING.md
     about: Contributing Guidelines for all ESSENTIAL KAOS projects
+
+  - name: Go Version Support Policy
+    url: https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md
+    about: Information about supported Go versions
