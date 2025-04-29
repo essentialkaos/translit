@@ -87,7 +87,7 @@ var (
 
 var (
 	iso9BExt1 = Map{'ц': "cz", 'Ц': "Cz"}
-	iso9BExt2 = Map{'ц': "с", 'Ц': "С"}
+	iso9BExt2 = Map{'ц': "c", 'Ц': "C"}
 
 	bgnExt1 = Map{'е': "e", 'Е': "E", 'ё': "ë", 'Ё': "Ë"}
 	bgnExt2 = Map{'е': "ye", 'Е': "Ye", 'ё': "yë", 'Ё': "Yë"}

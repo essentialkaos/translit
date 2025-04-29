@@ -3,7 +3,6 @@
 <p align="center">
   <a href="https://kaos.sh/g/translit.v2"><img src=".github/images/godoc.svg"/></a>
   <a href="https://kaos.sh/r/translit"><img src="https://kaos.sh/r/translit.svg" alt="GoReportCard" /></a>
-  <a href="https://kaos.sh/l/translit"><img src="https://kaos.sh/l/806194996d2d2c82496c.svg" alt="Code Climate Maintainability" /></a>
   <a href="https://kaos.sh/y/translit"><img src="https://kaos.sh/y/222ebbb777bf4867b05d302c23c3f77e.svg" alt="Codacy badge" /></a>
   <br/>
   <a href="https://kaos.sh/w/translit/ci"><img src="https://kaos.sh/w/translit/ci.svg" alt="GitHub Actions CI Status" /></a>
@@ -16,7 +15,7 @@
 
 <br/>
 
-`translit` is a package for [Go 1.22+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) for transliteration of Russian text.
+`translit` is a package for [Go 1.23+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) for transliteration of Russian text.
 
 Supported output formats:
 
@@ -28,7 +27,7 @@ Supported output formats:
 * BS 2979:1958
 * ICAO (_ИКАО_)
 
-### [Usage example](https://go.dev/play/p/PiuGUfXiM9y)
+### [Usage example](https://go.dev/play/p/lrrxNRKu8rm)
 
 ```go
 package main

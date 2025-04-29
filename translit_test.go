@@ -61,7 +61,7 @@ func (ts *TranslitSuite) TestISO9B(c *C) {
 		ISO9B("Эй, жлоб! Где туз? Прячь юных съёмщиц в шкаф."), Equals,
 		"E`j, zhlob! Gde tuz? Pryach` yuny`x s``yomshhicz v shkaf.")
 
-	c.Assert(ISO9B("Цепленок"), Equals, "Сeplenok")
+	c.Assert(ISO9B("Цепочка"), Equals, "Cepochka")
 }
 
 func (ts *TranslitSuite) TestBGN(c *C) {
