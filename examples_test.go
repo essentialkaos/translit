@@ -29,7 +29,7 @@ func ExampleISO9A() {
 
 func ExampleISO9B() {
 	fmt.Println(ISO9B(source))
-	// output: Shirokaya e`lektrifikaсiya yuzhny`x gubernij dast moshhny`j tolchok pod``yomu sel`skogo xozyajstva.
+	// output: Shirokaya e`lektrifikaciya yuzhny`x gubernij dast moshhny`j tolchok pod``yomu sel`skogo xozyajstva.
 }
 
 func ExampleBGN() {
