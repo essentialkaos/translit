@@ -2,7 +2,6 @@
 
 <p align="center">
   <a href="https://kaos.sh/g/translit.v2"><img src=".github/images/godoc.svg"/></a>
-  <a href="https://kaos.sh/r/translit"><img src="https://kaos.sh/r/translit.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/y/translit"><img src="https://kaos.sh/y/222ebbb777bf4867b05d302c23c3f77e.svg" alt="Codacy badge" /></a>
   <br/>
   <a href="https://kaos.sh/w/translit/ci"><img src="https://kaos.sh/w/translit/ci.svg" alt="GitHub Actions CI Status" /></a>
